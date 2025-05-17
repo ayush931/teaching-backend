@@ -11,3 +11,11 @@
 # //TODO: read the difference between export (name), export default (name)
 
 # Whenever we talk to the database or do time taking operation like hashing the code, saving the data in the db or any other heavy operation also, we use async await.
+
+# git push command
+
+# git add filename or . (. will add every uncommit file)
+# git commit -m (message) "write your message"
+# git push origin main
+
+# git clone (repo link) -> only use first time then use git pull
