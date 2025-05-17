@@ -1,21 +1,71 @@
-# 1. npm init -y
-# 2. npm install express nodemon mongoose dotenv
-## Go to package.json
-# 3. in script add "dev": "nodemon index.js"
-# 4. "type": "module"
-# 5. make the main file
+# Steps to Set Up the Project
 
-# 6. create .gitignore file and in that file write .env and node_modules
-# 7. create .env and .env.example
+1. Initialize the project:
 
-# //TODO: read the difference between export (name), export default (name)
+   ```bash
+   npm init -y
+   ```bash
 
-# Whenever we talk to the database or do time taking operation like hashing the code, saving the data in the db or any other heavy operation also, we use async await.
+2. Install dependencies:
 
-# git push command
+   ```bash
+   npm install express nodemon mongoose dotenv
+   ```bash
 
-# git add filename or . (. will add every uncommit file)
-# git commit -m (message) "write your message"
-# git push origin main
+3. Update `package.json`:
 
-# git clone (repo link) -> only use first time then use git pull
+   - Add the following script:
+     ```json
+     "scripts": {
+       "dev": "nodemon index.js"
+     }
+     ```bash
+
+   - Add `"type": "module"` to enable ES module support.
+
+4. Create the main file (`index.js`).
+
+5. Create a `.gitignore` file and add the following:
+
+   ```
+   .env
+   node_modules
+   ```
+
+6. Create `.env` and `.env.example` files.
+
+7. Learn the difference between `export { name }` and `export default name`.
+
+8. Use `async/await` for database operations or other time-consuming tasks like hashing or saving data.
+
+# Git Commands
+
+- Add files to staging:
+
+  ```bash
+  git add <filename>  # Add specific file
+  git add .           # Add all uncommitted files
+  ```
+
+- Commit changes:
+
+  ```bash
+  git commit -m "write your message"
+  ```
+
+- Push changes:
+
+  ```bash
+  git push origin main
+  ```
+
+- Clone a repository (use only the first time):
+
+  ```bash
+  git clone <repo link>
+  ```
+
+- Pull the latest changes:
+  ```bash
+  git pull
+  ```
