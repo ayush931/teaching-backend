@@ -1,35 +1,39 @@
 import UserModel from "../models/user.model.js";
 
 export async function register(req, res) {
-  const { name, email, password } = req.body;
+  const { name, email, password, phone } = req.body
+  
+  if (!name || !email || !password || !phone) {
+    return res.json({
+      message: "Data is missing"
+    })
+  }
 
-  if (!email || !name || !password) {
-    return res.status(401).json({
-      message: "Please provide the details",
-      success: false,
-      error: true
+  const checkUser = await UserModel.findOne({ email: email });
+
+  if (checkUser) {
+    return res.json({
+      message: "Already registered please login"
     })
   }
 
   const newUser = await new UserModel({
     name: name,
     email: email,
-    password: password
-  });
-
-  await newUser.save();
+    password: password,
+    phone: phone
+  })
 
   if (!newUser) {
-    return res.status(400).json({
-      message: "User not registered",
-      success: false,
-      error: true
+    return res.json({
+      message: "Not able to register, please try again"
     })
   }
 
-  return res.status(200).json({
-    message: "User registered successfully",
-    error: false,
-    success: true
+  await newUser.save();
+
+  return res.json({
+    message: "Registered successfully"
   })
+
 }
